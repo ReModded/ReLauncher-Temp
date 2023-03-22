@@ -70,33 +70,34 @@
                 "invalidValue": "* Nieprawidłowa wartość",
                 "requiredValue": "* Wymagane",
                 "userMigrated": {
-                    "title": "Error During Login:<br>Invalid Credentials",
-                    "desc": "You've attempted to login with a migrated account. Try again using the account email as the username."
+                    "title": "Błąd podczas logowania:<br>Nieprawidłowe Dane",
+                    "desc": "Podjęto próbę zalogowania się przy użyciu zmigrowanego konta. Spróbuj ponownie, używając adresu e-mail konta jako nazwy użytkownika."
                 },
                 "invalidCredentials": {
-                    "title": "Error During Login:<br>Invalid Credentials",
-                    "desc": "The email or password you've entered is incorrect. Please try again."
+                    "title": "Błąd podczas logowania:<br>Nieprawidłowe Dane",
+                    "desc": "Podany adres e-mail lub hasło są nieprawidłowe. Spróbuj ponownie."
                 },
                 "rateLimit": {
-                    "title": "Error During Login:<br>Too Many Attempts",
-                    "desc": "There have been too many login attempts with this account recently. Please try again later."
+                    "title": "Błąd podczas logowania:<br>Zbyt wiele prób logowania",
+                    "desc": "Ostatnio było zbyt wiele prób logowania się do tego konta. Spróbuj ponownie później"
                 },
                 "noInternet": {
-                    "title": "Error During Login:<br>No Internet Connection",
-                    "desc": "You must be connected to the internet in order to login. Please connect and try again."
+                    "title": "Błąd podczas logowania:<br>Brak połaczenia z internetem",
+                    "desc": "Aby się zalogować, musisz mieć połączenie z Internetem. Połącz się i spróbuj ponownie."
                 },
                 "authDown": {
-                    "title": "Error During Login:<br>Authentication Server Offline",
-                    "desc": "Mojang's authentication server is currently offline or unreachable. Please wait a bit and try again. You can check the status of the server on <a href=\"https://help.mojang.com/\">Mojang's help portal</a>."
+                    "title": "Błąd podczas logowania:<br>Serwer uwierzytelniania offline",
+                    "desc": "Serwer uwierzytelniania Mojang jest obecnie w trybie offline lub nieosiągalny. Poczekaj chwilę i spróbuj ponownie. Możesz sprawdzić stan serwera na <a href=\"https://help.mojang.com/\">portalu pomocy Mojang</a>."
                 },
                 "notPaid": {
-                    "title": "Error During Login:<br>Game Not Purchased",
-                    "desc": "The account you are trying to login with has not purchased a copy of Minecraft.<br>You may purchase a copy on <a href=\"https://minecraft.net/\">Minecraft.net</a>"
+                    "title": "Błąd podczas logowania:<br>Nie kupiono gry",
+                    "desc": "Konto, za pomocą którego próbujesz się zalogować, nie kupiło kopii gry Minecraft.<br>Możesz zakupić kopię na <a href=\"https://minecraft.net/\">Minecraft.net</a>"
                 },
                 "unknown": {
-                    "title": "Error During Login:<br>Unknown Error"
+                    "title": "Błąd podczas logowania:<br>Nieznany błąd"
                 }
             },
+
             "login": "ZALOGUJ",
             "loggingIn": "LOGOWANIE",
             "success": "ZALOGOWANO POMYŚLNIE",
