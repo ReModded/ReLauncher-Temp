@@ -3,7 +3,7 @@
 <h1 align="center">ReLauncher</h1>
 
 <p align="center">Join modded servers without worrying about installing Java, Forge, or other mods. We'll handle that for you.</p>
-<p align="center">Original author is <a href="https://github.com/dscalzi/" target="_blank">dscalzi</a>,Official releases of launcher you can find at <a href="https://github.com/dscalzi/HeliosLauncher" target="_blank">dscalzi/HeliosLauncher</a></p>
+<p align="center">Original author is <a href="https://github.com/dscalzi/" target="_blank">dscalzi</a>, Official releases of launcher you can find at <a href="https://github.com/dscalzi/HeliosLauncher" target="_blank">dscalzi/HeliosLauncher</a></p>
 
 ![Screenshot 1](https://i.imgur.com/jiPHARB.png)
 ![Screenshot 2](https://i.imgur.com/t79Q5cx.png)
