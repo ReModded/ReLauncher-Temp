@@ -181,6 +181,8 @@ const refreshMojangStatuses = async function(){
 
     for(let i=0; i<statuses.length; i++){
         const service = statuses[i]
+        if (service.name === 'Mojang Accounts Website')
+            continue
 
         if(service.essential){
             tooltipEssentialHTML += `<div class="mojangStatusContainer">
@@ -207,8 +209,8 @@ const refreshMojangStatuses = async function(){
 
     }
 
-    if(greenCount === statuses.length){
-        if(greyCount === statuses.length){
+    if(greenCount === statuses.length-1){
+        if(greyCount === statuses.length-1){
             status = 'grey'
         } else {
             status = 'green'
