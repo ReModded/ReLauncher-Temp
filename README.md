@@ -4,8 +4,8 @@
 
 <p align="center">Join modded servers without worrying about installing Java, Forge, or other mods. We'll handle that for you.</p>
 
-![Screenshot 1](https://i.imgur.com/aw1VyzC.png)
-![Screenshot 2](https://i.imgur.com/VgwuzYV.png)
+![Screenshot 1](https://i.imgur.com/jiPHARB.png)
+![Screenshot 2](https://i.imgur.com/t79Q5cx.png)
 
 ## Features
 
@@ -181,7 +181,7 @@ For instructions on setting up Microsoft Authentication, see https://github.com/
 
 The best way to contact the developers is on Discord.
 
-[![discord](https://discordapp.com/api/guilds/211524927831015424/embed.png?style=banner3)][discord]
+[![discord](https://discordapp.com/api/guilds/533010207912230944/embed.png?style=banner3)][discord]
 
 ---
 
