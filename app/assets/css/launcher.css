@@ -211,160 +211,6 @@ body, button {
 
 /*******************************************************************************
  *                                                                             *
- * Welcome View (welcome.ejs)                                                  *
- *                                                                             *
- ******************************************************************************/
-
-#welcomeContainer {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.50);
-}
-
-#welcomeContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    top: -10%;
-    position: relative;
-}
-
-/*
-.cloudDiv {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.cloudTop {
-    height: 50%;
-    width: 100%;
-    background-image: url('../images/cloudTrans.png');
-    animation: clouds1 80s linear infinite;
-    background-size: cover;
-}
-
-.cloudBottom {
-    height: 50%;
-    width: 100%;
-    background-image: url('../images/cloudTrans2.png');
-    animation: clouds2 70s linear infinite;
-    background-size: cover;
-}
-
-@keyframes clouds1 {
-    to {
-        background-position: 200%;
-    }
-}
-@keyframes clouds2 {
-    to {
-        background-position: 230%;
-    }
-}
-*/
-
-#welcomeImageSeal {
-    border-radius: 50%;
-    border: 2px solid #cad7e1;
-    background: rgba(1, 2, 1, 0.5);
-    height: 125px;
-    width: 125px;
-    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
-    margin-bottom: 5%;
-    margin-top: 10%;
-}
-
-#welcomeHeader {
-    font-family: 'Avenir Medium';
-    text-align: center;
-    color: white;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
-    font-size: 20px;
-    text-shadow: white 0px 0px 0px;
-}
-
-#welcomeDescription {
-    text-align: justify;
-    font-size: 13px;
-    font-weight: 100;
-    text-shadow: rgba(255, 255, 255, 0.75) 0px 0px 20px
-}
-
-#welcomeDescCTA {
-    text-align: center;
-    font-size: 14px;
-    font-weight: 100;
-    text-shadow: rgba(255, 255, 255, 0.75) 0px 0px 20px
-}
-
-/* Login button styles. */
-#welcomeButton {
-    background: none;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border: none;
-    padding: 15px 5px;
-    margin: 10px 0px;
-    cursor: pointer;
-    position: relative;
-    right: -20px;
-    transition: 0.5s ease;
-    margin-top: 5%;
-    margin-bottom: -5%;
-}
-#welcomeButton:disabled {
-    color: rgba(255, 255, 255, 0.75);
-    pointer-events: none;
-}
-#welcomeButton:hover,
-#welcomeButton:focus {
-    text-shadow: 0px 0px 20px #fff;
-    outline: none;
-}
-#welcomeButton:active {
-    color: #c7c7c7;
-    text-shadow: 0px 0px 20px #c7c7c7;
-}
-#welcomeSVG {
-    -webkit-transform: translate3d(0, 0, 0);
-    overflow: visible;
-    transform: rotate(90deg);
-    margin-left: 20px;
-    transition: 0.25s ease;
-    width: 20px;
-    height: 20px;
-}
-#welcomeButton:hover #welcomeSVG,
-#welcomeButton:focus #welcomeSVG {
-    -webkit-filter: drop-shadow(0px 0px 2px #fff);
-}
-#welcomeButton:active #welcomeSVG .arrowLine {
-    stroke: #c7c7c7;
-}
-#welcomeButton:active #welcomeSVG {
-    -webkit-filter: drop-shadow(0px 0px 2px #c7c7c7);
-}
-#welcomeButton:disabled #welcomeSVG .arrowLine {
-    stroke: rgba(255, 255, 255, 0.75);
-}
-
-#welcomeButtonContent {
-    display: flex;
-    align-items: center;
-}
-
-/*******************************************************************************
- *                                                                             *
  * Login View (login.ejs)                                                      *
  *                                                                             *
  ******************************************************************************/
@@ -486,12 +332,9 @@ body, button {
 
 /* Logo on login form. */
 #loginImageSeal {
-    border-radius: 50%;
-    border: 2px solid #cad7e1;
-    background: rgba(1, 2, 1, 0.5);
     height: 125px;
     width: 125px;
-    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+    /*box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);*/
     margin-bottom: 20px;
 }
 
@@ -511,6 +354,7 @@ body, button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: opacity 0.3s ease-in-out;
 }
 
 /* SVG icons on the login view. */
@@ -598,7 +442,9 @@ body, button {
 /* Container which contains the forgot and remember options. */
 #loginOptions {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 0.3em;
     width: 100%;
 }
 
@@ -799,7 +645,7 @@ body, button {
 /* Checkbox container. */
 #checkmarkContainer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
     cursor: pointer;
@@ -2858,7 +2704,6 @@ input:checked + .toggleSwitchSlider:before {
     height: 70px;
     width: auto;
     position: relative;
-    border: 2px solid white;
     box-sizing: border-box;
     border-radius: 50%;
 }
@@ -3066,9 +2911,9 @@ input:checked + .toggleSwitchSlider:before {
     height: 12px;
     width: 25px;
 }
-.mediaSVG:hover,
-.mediaURL:focus .mediaSVG,
-.mediaSVG:active {
+.mediaContainer:hover .mediaSVG,
+.mediaContainer:focus .mediaSVG,
+.mediaContainer:active .mediaSVG{
     height: 20px;
 }
 
@@ -3087,10 +2932,6 @@ input:checked + .toggleSwitchSlider:before {
     outline: none;
 }
 
-#settingsMediaContainer {
-    position: relative;
-}
-
 /* Settings icon colors. */
 #settingsSVG {
     stroke: #ffffff;
@@ -3103,7 +2944,7 @@ input:checked + .toggleSwitchSlider:before {
 }
 
 /* Settings tooltip styles. */
-#settingsTooltip {
+.settingsTooltip {
     visibility: hidden;
     opacity: 0;
     width: 75px;
@@ -3113,12 +2954,14 @@ input:checked + .toggleSwitchSlider:before {
     border-radius: 4px;
     position: absolute;
     z-index: 1;
-    right: 130%;
+    right: 6vw;
     font-size: 12px;
     line-height: 20px;
+    pointer-events: none;
+    text-decoration: none;
     transition: visibility 0s linear 0.25s, opacity 0.25s ease;
 }
-#settingsTooltip::after {
+.settingsTooltip::after {
     content: " ";
     position: absolute;
     top: 50%;
@@ -3128,48 +2971,49 @@ input:checked + .toggleSwitchSlider:before {
     border-style: solid;
     border-color: transparent transparent transparent rgba(0, 0, 0, 0.75);
 }
-.mediaButton:hover #settingsTooltip,
-.mediaButton:focus #settingsTooltip,
-.mediaButton:active #settingsTooltip {
+
+.mediaContainer:hover .settingsTooltip,
+.mediaContainer:focus .settingsTooltip,
+.mediaContainer:active .settingsTooltip {
     visibility: visible;
     opacity: 1;
     transition-delay:0s;
 }
 
 /* Twitter icon colors. */
-#twitterSVG:hover,
-#twitterURL:focus #twitterSVG {
+.mediaContainer:hover #twitterSVG,
+.mediaContainer:focus #twitterURL #twitterSVG {
     fill: #1da1f2;
 }
-#twitterSVG:active {
+.mediacontainer:active #twitterSVG {
     fill: #1b8dd4;
 }
 
 /* Instagram icon colors. */
-#instagramSVG:hover,
-#instagramURL:focus #instagramSVG {
+.mediaContainer:hover #instagramSVG,
+.mediaContainer:focus #instagramURL #instagramSVG {
     fill: url('#instaFill')
     /*fill: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); */
 }
-#instagramSVG:active {
+.mediaContainer:active #instagramSVG {
     fill: url('#instaFill')
 }
 
 /* Youtube icon colors. */
-#youtubeSVG:hover,
-#youtubeURL:focus #youtubeSVG {
+.mediaContainer:hover #youtubeSVG,
+.mediaContainer:focus #youtubeURL #youtubeSVG {
     fill: #f00;
 }
-#youtubeSVG:active {
+.mediaContainer:active #youtubeSVG {
     fill: #ea0202;
 }
 
 /* Discord icon colors. */
-#discordSVG:hover,
-#discordURL:focus #discordSVG {
+.mediaContainer:hover #discordSVG,
+.mediaContainer:focus #discordURL #discordSVG {
     fill: #7288d9;
 }
-#discordSVG:active {
+.mediaContainer:active #discordSVG {
     fill: #657ac4;
 }
 
@@ -3181,7 +3025,8 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Style for a general label on the bottom of the landing view. */
 .bot_label {
-    font-size: 9px;
+    font-size: 12px;
+    text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
     text-shadow: 0px 0px 0px #bebcbb;
@@ -3209,7 +3054,7 @@ input:checked + .toggleSwitchSlider:before {
 /* Span which displays the player count of the selected server. */
 #player_count {
     color: #949494;
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 900;
     text-shadow: 0px 0px 20px #949494;
     margin-left: 10px;
@@ -3747,7 +3592,6 @@ input:checked + .toggleSwitchSlider:before {
 /* Server listing image. */
 .serverListingImg {
     margin: 0px 10px 0px 5px;
-    border: 1px solid #fff;
     height: 50px;
     width: 50px;
 }
@@ -3942,23 +3786,6 @@ input:checked + .toggleSwitchSlider:before {
     position: absolute;
     width: 277px;
     height: auto;
-}
-
-/* Rotating image for the spinner. */
-#loadSpinnerImage {
-    width: 280px;
-    height: auto;
-    z-index: 400;
-}
-
-/* Rotating animation for the spinner. */
-@keyframes rotating {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 /* Class which is applied when the spinner image is spinning. */

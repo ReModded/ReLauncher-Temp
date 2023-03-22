@@ -8,16 +8,16 @@ const { Client } = require('discord-rpc-patch')
 let client
 let activity
 
-exports.initRPC = function(genSettings, servSettings, initialDetails = 'Waiting for Client..'){
+exports.initRPC = function(genSettings, servSettings, initialDetails = ''){
     client = new Client({ transport: 'ipc' })
 
     activity = {
-        details: initialDetails,
-        state: 'Server: ' + servSettings.shortId,
-        largeImageKey: servSettings.largeImageKey,
-        largeImageText: servSettings.largeImageText,
-        smallImageKey: genSettings.smallImageKey,
-        smallImageText: genSettings.smallImageText,
+        details: servSettings.imageText,
+        state: initialDetails,
+        largeImageKey: genSettings.imageKey,
+        largeImageText: genSettings.imageText,
+        smallImageKey: servSettings.imageKey,
+        smallImageText: servSettings.imageText,
         startTimestamp: new Date().getTime(),
         instance: false
     }
@@ -37,7 +37,7 @@ exports.initRPC = function(genSettings, servSettings, initialDetails = 'Waiting 
 }
 
 exports.updateDetails = function(details){
-    activity.details = details
+    activity.state = details
     client.setActivity(activity)
 }
 

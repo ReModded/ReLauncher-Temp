@@ -1,12 +1,74 @@
 {
     "html": {
-        "avatarOverlay": "Edit"
+        "avatarOverlay": "Profil",
+        "settingsTooltip": "Ustawienia",
+        "launch_button": "Graj",
+        "landingPlayerLabel": "Gracze",
+        "mojangStatusTooltipTitle": "Usługi",
+        "mojangStatusNETitle": "Niewymagane",
+        "serverSelectHeader": "Dostępne paczki",
+        "serverSelectConfirm": "Wybierz",
+        "serverSelectCancel": "Anuluj",
+        "websiteTooltip": "Strona",
+        "accountSelectHeader": "Wybierz konto",
+        "accountSelectConfirm": "Wybierz",
+        "accountSelectCancel": "Anuluj",
+        "settingsNavHeaderText": "Ustawienia",
+        "settingsNavAccount": "Konta",
+        "settingsNavMods": "Mody",
+        "settingsNavAbout": "Więcej",
+        "settingsNavDone": "Gotowe",
+        "settingsAddMicrosoftAccount": "+ Dodaj konto Microsoft",
+        "settingsAddMojangAccount": "+ Dodaj konto offline",
+        "settingsAccountHeaderText": "Ustawienia kont",
+        "settingsAccountHeaderDesc": "Dodaj nowe konta lub zarządzaj istniejącymi.",
+        "settingsMinecraftHeaderText": "Ustawienia Minecraft",
+        "settingsMinecraftHeaderDesc": "Opcje dotyczące uruchamiania gry.",
+        "settingsMinecraftGameResolutionTitle": "Rozdzielczość okna",
+        "settingsMinecraftFullscreenTitle": "Uruchom w pełnym ekranie.",
+        "settingsMinecraftAutoConnectTitle": "Automatycznie połącz do serwera po uruchomieniu.",
+        "settingsMinecraftDetachTitle": "Uruchom grę oddzieloną od launchera.",
+        "settingsMinecraftDetachDesc": "Jeśli gra nie jest oddzielona, zamknięcie launchera spowoduje również zamknięcie gry."
+    },
+    "querySelector": {
+        "#settingsTabMods .settingsTabHeaderText": "Ustawienia modów",
+        "#settingsTabMods .settingsTabHeaderDesc": "Wyłącz lub włącz mody.",
+        "#settingsTabMods .settingsSwitchServerButton": "Zmień",
+        "#settingsTabMods #settingsModsContainer div:nth-child(1) div": "Wymagane mody",
+        "#settingsTabMods #settingsModsContainer div:nth-child(2) div": "Opcjonalne mody",
+        "#settingsTabMods #settingsModsContainer div:nth-child(3) div": "Własne mody",
+        "#settingsTabMods #settingsModsContainer div:nth-child(4) div": "Paczki shaderów",
+        "#settingsTabMods #settingsDropinFileSystemButton span:nth-child(1)": "+ Dodaj mody ",
+        "#settingsTabMods #settingsDropinFileSystemButton span:nth-child(2)": "(F5 aby odświeżyć)",
+        "#settingsTabMods #settingsShaderpackDesc": "Wyłącz lub włącz paczki shaderów. Miej na uwadze, że wymagają one całkiem mocnych komputerów. Możesz tutaj również dodać własne paczki.",
+        "#settingsTabJava .settingsTabHeaderText": "Ustawienia Javy",
+        "#settingsTabJava .settingsTabHeaderDesc": "Zmieniaj konfigurację javy. Tylko dla zaawansowanych!",
+        "#settingsTabJava #settingsMemoryTitle": "Pamięć",
+        "#settingsTabJava .settingsMemoryContentItem:nth-child(1) .settingsMemoryHeader": "Maksymalny RAM",
+        "#settingsTabJava .settingsMemoryContentItem:nth-child(2) .settingsMemoryHeader": "Minimalny RAM",
+        "#settingsTabJava .settingsMemoryStatusContainer:nth-child(1) .settingsMemoryStatusTitle": "Całkowite",
+        "#settingsTabJava .settingsMemoryStatusContainer:nth-child(2) .settingsMemoryStatusTitle": "Dostępne",
+        "#settingsTabJava #settingsMemoryDesc": "Minimalna wartość to przynajmniej 2G, lecz rekomendowana to 4G",
+        "#settingsTabJava .settingsFileSelTitle": "Plik wykonywalny Javy",
+        "#settingsTabJava #settingsJavaExecSel": "Wybierz plik",
+        "#settingsTabJava .settingsFileSelDesc": "Plik wykonywalny jest sprawdzany przed uruchomieniem gry. <strong id=\"settingsJavaReqDesc\">Wymagana Java 8 x64.</strong><br>Podana ścieżka powinna kończyć się na <strong>bin\\javaw.exe</strong>.",
+        "#settingsTabJava #settingsJVMOptsTitle": "Dodatkowe parametry JVM",
+        "#settingsTabJava #settingsJVMOptsDesc": "Opcje podawane do JVM w runtime. <em>-Xmx</em> i <em>-Xms</em> nie powinny się tutaj znajdować.<br><a href=\"https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html\" id=\"settingsJvmOptsLink\">Opcje dostępne dla Javy 8 (HotSpot VM)</a>",
+        "#settingsTabLauncher .settingsTabHeaderText": "Opcje launchera",
+        "#settingsTabLauncher .settingsTabHeaderDesc": "",
+        "#settingsTabLauncher #settingsDataDirTitle": "Katalog instalacji launchera",
+        "#settingsTabLauncher .settingsFileSelButton": "Wybierz katalog",
+        "#settingsTabLauncher .settingsFileSelDesc": "Wszystkie pliki gry oraz lokalne instalacje javy będą tutaj przechowywane",
+        "#settingsTabAbout .settingsTabHeaderText": "O launcherze",
+        "#settingsTabAbout .settingsTabHeaderDesc": "",
+        "#settingsTabAbout #settingsAboutSupportButton": "Wsparcie",
+        "#settingsTabAbout #settingsAboutDevToolsButton": "Konsola developerska"
     },
     "js": {
         "login": {
             "error": {
-                "invalidValue": "* Invalid Value",
-                "requiredValue": "* Required",
+                "invalidValue": "* Nieprawidłowa wartość",
+                "requiredValue": "* Wymagane",
                 "userMigrated": {
                     "title": "Error During Login:<br>Invalid Credentials",
                     "desc": "You've attempted to login with a migrated account. Try again using the account email as the username."
@@ -35,14 +97,14 @@
                     "title": "Error During Login:<br>Unknown Error"
                 }
             },
-            "login": "LOGIN",
-            "loggingIn": "LOGGING IN",
-            "success": "SUCCESS",
-            "tryAgain": "Try Again"
+            "login": "ZALOGUJ",
+            "loggingIn": "LOGOWANIE",
+            "success": "ZALOGOWANO POMYŚLNIE",
+            "tryAgain": "Spróbuj ponownie"
         },
         "landing": {
             "launch": {
-                "pleaseWait": "Please wait.."
+                "pleaseWait": "Proszę czekać..."
             }
         }
     }

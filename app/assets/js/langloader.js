@@ -8,7 +8,7 @@ exports.loadLanguage = function(id){
 }
 
 exports.query = function(id){
-    let query = id.split('.')
+    let query = id.split('^')
     let res = lang
     for(let q of query){
         res = res[q]
@@ -17,5 +17,10 @@ exports.query = function(id){
 }
 
 exports.queryJS = function(id){
-    return exports.query(`js.${id}`)
+    let query = id.split('.')
+    let res = lang['js']
+    for(let q of query){
+        res = res[q]
+    }
+    return res === lang ? {} : res
 }

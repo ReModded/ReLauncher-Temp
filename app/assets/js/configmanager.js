@@ -7,7 +7,7 @@ const logger = LoggerUtil.getLogger('ConfigManager')
 
 const sysRoot = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 // TODO change
-const dataPath = path.join(sysRoot, '.helioslauncher')
+const dataPath = path.join(sysRoot, '.relauncher')
 
 // Forked processes do not have access to electron, so we have this workaround.
 const launcherDir = process.env.CONFIG_DIRECT_PATH || require('@electron/remote').app.getPath('userData')
@@ -788,22 +788,3 @@ exports.setLaunchDetached = function(launchDetached){
 }
 
 // Launcher Settings
-
-/**
- * Check if the launcher should download prerelease versions.
- * 
- * @param {boolean} def Optional. If true, the default value will be returned.
- * @returns {boolean} Whether or not the launcher should download prerelease versions.
- */
-exports.getAllowPrerelease = function(def = false){
-    return !def ? config.settings.launcher.allowPrerelease : DEFAULT_CONFIG.settings.launcher.allowPrerelease
-}
-
-/**
- * Change the status of Whether or not the launcher should download prerelease versions.
- * 
- * @param {boolean} launchDetached Whether or not the launcher should download prerelease versions.
- */
-exports.setAllowPrerelease = function(allowPrerelease){
-    config.settings.launcher.allowPrerelease = allowPrerelease
-}

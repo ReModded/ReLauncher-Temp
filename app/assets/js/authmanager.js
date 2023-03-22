@@ -15,6 +15,7 @@ const { RestResponseStatus } = require('helios-core/common')
 const { MojangRestAPI, mojangErrorDisplayable, MojangErrorCode } = require('helios-core/mojang')
 const { MicrosoftAuth, microsoftErrorDisplayable, MicrosoftErrorCode } = require('helios-core/microsoft')
 const { AZURE_CLIENT_ID }    = require('./ipcconstants')
+const crypto                 = require('crypto')
 
 const log = LoggerUtil.getLogger('AuthManager')
 
@@ -55,6 +56,51 @@ exports.addMojangAccount = async function(username, password) {
         log.error(err)
         return Promise.reject(mojangErrorDisplayable(MojangErrorCode.UNKNOWN))
     }
+}
+
+/**
+ * Add an account. The resultant data will be stored as an auth account in the
+ * configuration database.
+ *
+ * @param {string} username The account username (email if migrated).
+ * @returns {Promise.<Object>} Promise which resolves the resolved authenticated account object.
+ */
+exports.addOfflineAccount = async function (username) {
+    try {
+        const session = {
+            selectedProfile: {
+                id: offlineUUID(`OfflinePlayer:${username}`),
+                name: username
+            },
+            accessToken: undefined
+        }
+        if (session.selectedProfile != null) {
+            const ret = ConfigManager.addMojangAuthAccount(session.selectedProfile.id, session.accessToken, username, session.selectedProfile.name)
+            if (ConfigManager.getClientToken() == null) {
+                ConfigManager.setClientToken(session.clientToken)
+            }
+            ConfigManager.save()
+            return ret
+        } else {
+            return Promise.reject(mojangErrorDisplayable(MojangErrorCode.ERROR_NOT_PAID))
+        }
+
+    } catch (err) {
+        log.error(err)
+        return Promise.reject(mojangErrorDisplayable(MojangErrorCode.UNKNOWN))
+    }
+}
+
+
+function offlineUUID(input) {
+    let md5Bytes = crypto.createHash('md5').update(input).digest()
+    md5Bytes[6] &= 0x0f  /* clear version        */
+    md5Bytes[6] |= 0x30  /* set to version 3     */
+    md5Bytes[8] &= 0x3f  /* clear variant        */
+    md5Bytes[8] |= 0x80  /* set to IETF variant  */
+    const hex = md5Bytes.toString('hex')
+    const uuid = hex.replace(/(\w{8})(\w{4})(\w{4})(\w{4})(\w{12})/, '$1$2$3$4$5')
+    return uuid
 }
 
 const AUTH_MODE = { FULL: 0, MS_REFRESH: 1, MC_REFRESH: 2 }
@@ -167,14 +213,12 @@ exports.removeMojangAccount = async function(uuid){
     try {
         const authAcc = ConfigManager.getAuthAccount(uuid)
         const response = await MojangRestAPI.invalidate(authAcc.accessToken, ConfigManager.getClientToken())
-        if(response.responseStatus === RestResponseStatus.SUCCESS) {
-            ConfigManager.removeAuthAccount(uuid)
-            ConfigManager.save()
-            return Promise.resolve()
-        } else {
-            log.error('Error while removing account', response.error)
-            return Promise.reject(response.error)
+        if(response.responseStatus !== RestResponseStatus.SUCCESS) {
+            log.error('Error while removing account, trying to force remove', response.error)
         }
+        ConfigManager.removeAuthAccount(uuid)
+        ConfigManager.save()
+        return Promise.resolve()
     } catch (err){
         log.error('Error while removing account', err)
         return Promise.reject(err)
@@ -309,7 +353,9 @@ exports.validateSelected = async function(){
     if(current.type === 'microsoft') {
         return await validateSelectedMicrosoftAccount()
     } else {
-        return await validateSelectedMojangAccount()
+        return new Promise(resolve => {
+            resolve(true)
+        })
     }
     
 }
